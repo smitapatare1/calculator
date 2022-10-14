@@ -2,6 +2,24 @@
 <html lang="en">
 <head>
     <title>Calculator</title>
+
+    <script>
+        function pressbutton(buttonvalue){
+            let caltext = document.querySelector(".input-screen").value + buttonvalue + "";
+            document.querySelector(".input-screen").value = caltext;
+        }
+
+        function Calculate(){
+            let caltext = document.querySelector(".input-screen").value;
+            document.querySelector(".input-screen").value = eval(caltext) ;   
+        }
+
+        function clearscreen(){
+            document.querySelector(".input-screen").value = "";
+        }
+    </script>
+
+
     <style>
         .calcutator-container{
             width:350px;
@@ -28,20 +46,32 @@
        }
 
    .btn:hover{
-       box-shadow:1px 1px 3px 3px white;
+       box-shadow:0px 0px 2px 2px white;
        cursor:pointer;
        }
 
-   .bg-tomato{
-       background-color: orange;
+   .bg-orange{
+       background-color: #ffc14d;
        color:white;
-       border:2px solid white;
+       border:3px solid white;
+   }
+   .bg-orange:hover{
+    background-color: #e69500;
+    border: 2px solid white;
+   }
+
+   .bg-red{
+    background-color: #ff4d4d;
+
+   }
+   .bg-red:hover{
+    background-color: #ff3333;
    }
 
    .input-screen{
        width:100%;
        height:70px;                              
-       font-size: 70px;
+       font-size: 65px;
        margin-bottom:20px;
        background-color:rgba(45, 133, 89, 0.945);
        border-radius:10px;
@@ -49,8 +79,12 @@
    }
 
    .bg-blue{
-       background-color: #ccffff;
-       box-shadow:1px 1px 3px 3px white;
+       background-color: #80d4ff;
+       box-shadow:1px 1px 1px 1px white;
+   }
+   .bg-blue:hover{
+    box-shadow:1px 1px 2.5px 2.5px white;
+    background-color: #1ab2ff;
    }
 
    .name{
@@ -63,37 +97,37 @@
 <body>
     <div class="calcutator-container">
         <div class="name">
-            <span>SMITA</span>
+            <span>RTC</span>
     </div>
         <div class="row">
             <input type="text" id="input" class="input-screen"/>
         </div>    
         <div class="row">
-            <button class="btn">7</button>
-            <button class="btn">8</button>
-            <button class="btn">9</button>
-            <button class="btn bg-blue">÷</button>
+            <button class="btn" onClick="pressbutton(7)">7</button>
+            <button class="btn" onClick="pressbutton(8)">8</button>
+            <button class="btn" onClick="pressbutton(9)">9</button>
+            <button class="btn bg-blue" onClick="pressbutton('/')">÷</button>
         </div>
 
         <div class="row">
-            <button class="btn">4</button>
-            <button class="btn">5</button>
-            <button class="btn">6</button>
-            <button class="btn bg-blue">x</button>
+            <button class="btn" onClick="pressbutton(4)">4</button>
+            <button class="btn" onClick="pressbutton(5)">5</button>
+            <button class="btn" onClick="pressbutton(6)">6</button>
+            <button class="btn bg-blue" onClick="pressbutton('*')">x</button>
         </div>
 
         <div class="row">
-            <button class="btn">1</button>
-            <button class="btn">2</button>
-            <button class="btn">3</button>
-            <button class="btn bg-blue">-</button>
+            <button class="btn" onClick="pressbutton(1)">1</button>
+            <button class="btn" onClick="pressbutton(2)">2</button>
+            <button class="btn" onClick="pressbutton(3)">3</button>
+            <button class="btn bg-blue" onClick="pressbutton('-')">-</button>
         </div>
 
         <div class="row">
-            <button class="btn">0</button>
-            <button class="btn bg-blue">.</button>
-            <button class="btn bg-blue">+</button>
-            <button class="btn bg-tomato">=</button>
+            <button class="btn" onClick="pressbutton(0)">0</button>
+            <button class="btn bg-red" onClick="clearscreen()">CE</button>
+            <button class="btn bg-blue" onClick="pressbutton('+')">+</button>
+            <button class="btn bg-orange" onClick="Calculate()">=</button>
         </div>
     </div>       
 </body>
